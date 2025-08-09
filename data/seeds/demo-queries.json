@@ -1,0 +1,78 @@
+{
+  "queries": [
+    {
+      "id": "curcumin-cancer",
+      "query": "curcumin cancer",
+      "title": "Curcumin and Cancer Research",
+      "description": "Evidence mapping for curcumin's potential anti-cancer properties",
+      "keywords": ["curcumin", "cancer", "turmeric", "anti-cancer", "chemoprevention"],
+      "papers": [
+        {
+          "title": "Curcumin: A Review of Its Effects on Human Health",
+          "authors": ["Susan J. Hewlings", "Douglas S. Kalman"],
+          "year": 2017,
+          "abstract": "Curcumin has been shown to have anti-inflammatory, antioxidant, and anti-cancer properties...",
+          "doi": "10.3390/foods6100092"
+        },
+        {
+          "title": "Anticancer potential of curcumin: preclinical and clinical studies",
+          "authors": ["Bharat B. Aggarwal", "Anushree Kumar", "Alok C. Bharti"],
+          "year": 2003,
+          "abstract": "Extensive research over the last 50 years has indicated curcumin's potential against various cancers...",
+          "doi": "10.1097/00001813-200301000-00004"
+        }
+      ]
+    },
+    {
+      "id": "berberine-diabetes",
+      "query": "berberine diabetes",
+      "title": "Berberine and Diabetes Management",
+      "description": "Scientific evidence on berberine's effects on blood sugar and diabetes",
+      "keywords": ["berberine", "diabetes", "blood sugar", "metabolic syndrome", "insulin"],
+      "papers": [
+        {
+          "title": "Efficacy of Berberine in Patients with Type 2 Diabetes",
+          "authors": ["Jun Yin", "Huili Xing", "Jianping Ye"],
+          "year": 2008,
+          "abstract": "Berberine has been shown to regulate glucose and lipid metabolism in vitro and in vivo...",
+          "doi": "10.1016/j.metabol.2008.01.013"
+        },
+        {
+          "title": "Berberine: Botanical Occurrence, Traditional Uses, Extraction Methods, and Relevance in Cardiovascular, Metabolic, Hepatic, and Renal Disorders",
+          "authors": ["Maria A. Neag", "Andrei Mocan", "Javier Echeverría"],
+          "year": 2018,
+          "abstract": "Berberine has demonstrated significant effects on glucose metabolism and insulin sensitivity...",
+          "doi": "10.3389/fphar.2018.00557"
+        }
+      ]
+    },
+    {
+      "id": "hbot-wound-healing",
+      "query": "hyperbaric oxygen wound healing",
+      "title": "Hyperbaric Oxygen Therapy for Wound Healing",
+      "description": "Evidence for HBOT in chronic wound management and healing",
+      "keywords": ["hyperbaric oxygen", "HBOT", "wound healing", "chronic wounds", "tissue repair"],
+      "papers": [
+        {
+          "title": "Hyperbaric oxygen therapy for chronic wounds",
+          "authors": ["Ellie Goldberg", "Madhuri Goud Bhagavan"],
+          "year": 2020,
+          "abstract": "HBOT has been shown to improve oxygen delivery to tissues and promote wound healing...",
+          "doi": "10.1002/14651858.CD004123.pub4"
+        },
+        {
+          "title": "Systematic review of hyperbaric oxygen in the management of chronic wounds",
+          "authors": ["Peter Kranke", "Michael H. Bennett", "Marrissa Martyn-St James"],
+          "year": 2015,
+          "abstract": "Evidence suggests HBOT significantly improves healing in diabetic foot ulcers...",
+          "doi": "10.1111/bjd.13352"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "created": "2025-01-09",
+    "version": "1.0.0",
+    "source": "MAHA Evidence Engine Demo Data"
+  }
+}
