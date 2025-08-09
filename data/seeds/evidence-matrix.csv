@@ -1,0 +1,15 @@
+Intervention,Outcome,Evidence_Strength,Study_Count,Quality_Score
+Curcumin,Cancer Prevention,8.5,45,4.2
+Curcumin,Inflammation,9.1,62,4.5
+Curcumin,Mental Health,6.3,18,3.8
+Curcumin,Cardiovascular Health,7.8,32,4.1
+Curcumin,Diabetes Management,7.2,28,3.9
+Berberine,Diabetes Management,9.2,58,4.6
+Berberine,Metabolic Health,8.7,42,4.3
+Berberine,Cardiovascular Health,8.1,36,4.2
+Berberine,Inflammation,7.5,24,4.0
+Berberine,Weight Management,7.9,31,4.1
+HBOT,Wound Healing,8.8,52,4.4
+HBOT,Inflammation,7.3,22,3.9
+HBOT,Brain Health,6.8,19,3.7
+HBOT,Athletic Recovery,6.5,15,3.5
