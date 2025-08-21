@@ -1,7 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import siteConfig from '@/../branding/site.json';
+// Import site branding configuration from the repository root
+// The previous path attempted to go only one level up from `src`,
+// resolving to `apps/web/branding/site.json` which doesn't exist.
+// We need to traverse up to the monorepo root to reach the shared
+// `branding/site.json` file.
+import siteConfig from '../../../../branding/site.json';
 
 const Header: React.FC = () => {
   return (

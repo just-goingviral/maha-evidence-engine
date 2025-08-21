@@ -11,10 +11,16 @@ jest.mock('next/image', () => ({
 }))
 
 // Mock Next.js Link component
+// Mock Next.js Link component and forward all props so styles and other
+// attributes like `className` are preserved in tests
 jest.mock('next/link', () => ({
   __esModule: true,
-  default: ({ children, href }) => {
-    return <a href={href}>{children}</a>
+  default: ({ children, href, ...props }) => {
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    )
   },
 }))
 

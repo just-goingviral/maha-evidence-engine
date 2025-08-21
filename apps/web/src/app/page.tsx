@@ -1,4 +1,5 @@
-import siteConfig from "@/../branding/site.json";
+// Import site configuration from monorepo root branding folder
+import siteConfig from "../../../../branding/site.json";
 
 export default function Home() {
   const jsonLd = {
@@ -48,7 +49,7 @@ export default function Home() {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-semibold mb-3 text-primary">Curcumin & Cancer</h3>
             <p className="text-gray-600 mb-4">
-              Explore evidence on curcumin's potential anti-cancer properties and mechanisms.
+              Explore evidence on curcumin&apos;s potential anti-cancer properties and mechanisms.
             </p>
             <a href="/maps?query=curcumin+cancer" className="text-accent hover:underline">
               View Research →
@@ -57,7 +58,7 @@ export default function Home() {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-xl font-semibold mb-3 text-primary">Berberine & Diabetes</h3>
             <p className="text-gray-600 mb-4">
-              Discover studies on berberine's effects on blood sugar and metabolic health.
+              Discover studies on berberine&apos;s effects on blood sugar and metabolic health.
             </p>
             <a href="/maps?query=berberine+diabetes" className="text-accent hover:underline">
               View Research →
