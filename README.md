@@ -26,6 +26,8 @@ Perfect for:
 
 A scientific evidence mapping platform that integrates Open Knowledge Maps with a custom Next.js 14 shell, featuring full MAHA branding and EviAtlas integration.
 
+If you're new to the project, check out [docs/overview.md](docs/overview.md) for a guided tour of the repository.
+
 ![MAHA Evidence Engine](./branding/maha-logo.svg)
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/just-goingviral/maha-evidence-engine/ci.yml?branch=main&style=for-the-badge)](https://github.com/just-goingviral/maha-evidence-engine/actions)
