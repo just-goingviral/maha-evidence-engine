@@ -85,6 +85,10 @@ maha-evidence-engine/
 └── README.md
 ```
 
+## 🔗 Clipboard Sharing
+
+The web app includes a `copyToClipboard` utility that uses the modern Clipboard API when available and gracefully falls back to legacy `document.execCommand('copy')` behavior. This ensures links can be copied in all supported browsers.
+
 ## 🎨 Branding Customization
 
 ### One-Step Rebranding Process

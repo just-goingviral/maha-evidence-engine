@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import siteConfig from '@/../branding/site.json';
+import siteConfig from '../../../../branding/site.json';
+import CopyButton from './CopyButton';
 
 const Header: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const Header: React.FC = () => {
           <li><Link href="/" className="hover:text-accent">Home</Link></li>
           <li><Link href="/maps" className="hover:text-accent">Maps</Link></li>
           <li><Link href="/atlas" className="hover:text-accent">Atlas</Link></li>
+          <li><CopyButton /></li>
         </ul>
       </nav>
     </header>

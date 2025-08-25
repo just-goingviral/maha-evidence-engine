@@ -32,6 +32,12 @@ describe('Header Component', () => {
     expect(atlasLink).toHaveAttribute('href', '/atlas');
   });
 
+  it('includes a copy URL button', () => {
+    render(<Header />);
+    const button = screen.getByRole('button', { name: /copy url/i });
+    expect(button).toBeInTheDocument();
+  });
+
   it('applies correct CSS classes for branding', () => {
     render(<Header />);
     const header = screen.getByRole('banner');

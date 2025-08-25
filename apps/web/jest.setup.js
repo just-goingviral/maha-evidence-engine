@@ -13,8 +13,9 @@ jest.mock('next/image', () => ({
 // Mock Next.js Link component
 jest.mock('next/link', () => ({
   __esModule: true,
-  default: ({ children, href }) => {
-    return <a href={href}>{children}</a>
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  default: ({ children, href, ...rest }) => {
+    return <a href={href} {...rest}>{children}</a>
   },
 }))
 
