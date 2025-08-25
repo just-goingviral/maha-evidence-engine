@@ -56,8 +56,31 @@ Access the application at:
 ## 📋 Prerequisites
 
 - Docker 20.10+ and Docker Compose 2.0+
-- Node.js 20+ (for local development)
 - Git
+- [mise](https://mise.jdx.dev) for managing language runtimes
+
+## 🔧 Development Environment
+
+The project uses `mise.toml` to pin runtime versions across development and CI:
+
+```
+Node 20.19.4
+Python 3.12
+Ruby 3.4.4
+Go 1.24.3
+Rust 1.88.0
+Swift 6.1
+PHP 8.4
+```
+
+Install the toolchain with:
+
+```bash
+mise install
+```
+
+Dependencies are locked via `package-lock.json`, `requirements.txt`, and `Cargo.lock`.
+Use `npm ci`, `pip install -r requirements.txt`, and Cargo commands (when applicable) to ensure a consistent dependency graph.
 
 ## 🏗️ Architecture
 
