@@ -7,7 +7,13 @@ on:
     branches: [ main, develop ]
 
 env:
-  NODE_VERSION: '20'
+  NODE_VERSION: '20.19.4'
+  PYTHON_VERSION: '3.12'
+  RUBY_VERSION: '3.4.4'
+  GO_VERSION: '1.24.3'
+  RUST_VERSION: '1.88.0'
+  SWIFT_VERSION: '6.1'
+  PHP_VERSION: '8.4'
 
 jobs:
   # Linting and code quality checks
@@ -16,22 +22,81 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
           cache-dependency-path: './apps/web/package-lock.json'
-      
+
+      - name: Setup Python
+        if: hashFiles('requirements.txt') != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Setup Ruby
+        if: hashFiles('Gemfile.lock') != ''
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      - name: Setup Go
+        if: hashFiles('go.sum') != ''
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        if: hashFiles('Cargo.lock') != ''
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+
+      - name: Cache cargo registry
+        if: hashFiles('Cargo.lock') != ''
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Setup Swift
+        if: hashFiles('Package.swift') != ''
+        uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: ${{ env.SWIFT_VERSION }}
+
+      - name: Setup PHP
+        if: hashFiles('composer.lock') != ''
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          tools: composer
+          coverage: none
+
       - name: Install dependencies
         working-directory: ./apps/web
         run: npm ci
-      
+
+      - name: Install Python dependencies
+        if: hashFiles('requirements.txt') != ''
+        run: pip install --require-hashes -r requirements.txt
+
+      - name: Fetch Rust dependencies
+        if: hashFiles('Cargo.lock') != ''
+        run: cargo fetch --locked
+
       - name: Run ESLint
         working-directory: ./apps/web
         run: npm run lint
-      
+
       - name: Check TypeScript
         working-directory: ./apps/web
         run: npx tsc --noEmit
@@ -40,33 +105,89 @@ jobs:
   test:
     name: Test Suite
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18, 20]
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Node.js ${{ matrix.node-version }}
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
           cache-dependency-path: './apps/web/package-lock.json'
-      
+
+      - name: Setup Python
+        if: hashFiles('requirements.txt') != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Setup Ruby
+        if: hashFiles('Gemfile.lock') != ''
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      - name: Setup Go
+        if: hashFiles('go.sum') != ''
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        if: hashFiles('Cargo.lock') != ''
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+
+      - name: Cache cargo registry
+        if: hashFiles('Cargo.lock') != ''
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Setup Swift
+        if: hashFiles('Package.swift') != ''
+        uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: ${{ env.SWIFT_VERSION }}
+
+      - name: Setup PHP
+        if: hashFiles('composer.lock') != ''
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          tools: composer
+          coverage: none
+
       - name: Install dependencies
         working-directory: ./apps/web
         run: npm ci
-      
+
+      - name: Install Python dependencies
+        if: hashFiles('requirements.txt') != ''
+        run: pip install --require-hashes -r requirements.txt
+
+      - name: Fetch Rust dependencies
+        if: hashFiles('Cargo.lock') != ''
+        run: cargo fetch --locked
+
       - name: Run tests with coverage
         working-directory: ./apps/web
         run: npm run test:ci
-      
+
       - name: Upload coverage reports
         uses: codecov/codecov-action@v3
         with:
           directory: ./apps/web/coverage
           flags: unittests
-          name: codecov-${{ matrix.node-version }}
+          name: codecov-${{ env.NODE_VERSION }}
 
   # Security scanning
   security:
