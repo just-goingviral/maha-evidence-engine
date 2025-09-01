@@ -1,16 +1,17 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// Import site branding configuration from the repository root
-// The previous path attempted to go only one level up from `src`,
-// resolving to `apps/web/branding/site.json` which doesn't exist.
-// We need to traverse up to the monorepo root to reach the shared
-// `branding/site.json` file.
-import siteConfig from '../../../../branding/site.json';
+import { usePathname } from 'next/navigation';
 import siteConfig from '../../../../branding/site.json';
 import CopyButton from './CopyButton';
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  const TitleTag = isHome ? 'h1' : 'span';
+
   return (
     <header className="bg-primary text-white p-4 flex items-center justify-between">
       <div className="flex items-center">
@@ -20,7 +21,9 @@ const Header: React.FC = () => {
           width={50}
           height={50}
         />
-        <h1 className="ml-4 text-2xl font-bold">{siteConfig.siteName}</h1>
+        <TitleTag className="ml-4 text-2xl font-bold">
+          {siteConfig.siteName}
+        </TitleTag>
       </div>
       <nav>
         <ul className="flex space-x-6">

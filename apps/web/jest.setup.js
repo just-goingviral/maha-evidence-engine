@@ -16,9 +16,9 @@ jest.mock('next/image', () => ({
 jest.mock('next/link', () => ({
   __esModule: true,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  default: ({ children, href, ...props, ...rest }) => {
+  default: ({ children, href, ...props }) => {
     return (
-      <a href={href} {...rest} {...props}>
+      <a href={href} {...props}>
         {children}
       </a>
     )
