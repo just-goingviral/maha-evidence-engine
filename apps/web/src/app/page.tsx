@@ -114,6 +114,11 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <p className="mb-2">© 2025 MAHA Evidence Engine. All rights reserved.</p>
           <p className="text-gray-400">Empowering evidence-based natural healing research</p>
+          <p className="mt-2">
+            <a href="/disclaimer" className="text-gray-400 hover:underline">
+              Medical information disclaimer
+            </a>
+          </p>
         </div>
       </footer>
     </main>
