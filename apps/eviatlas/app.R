@@ -130,32 +130,7 @@ server <- function(input, output, session) {
   # Load or generate data
   evidence_data <- reactive({
     if (input$dataset == "natural_healing") {
-      # Generate demo data for natural healing interventions
-      interventions <- c("Curcumin", "Berberine", "HBOT", "Vitamin D", "Omega-3", 
-                        "Probiotics", "Meditation", "Acupuncture", "Exercise", "Fasting")
-      outcomes <- c("Cancer Prevention", "Diabetes Management", "Wound Healing", 
-                   "Inflammation", "Cardiovascular Health", "Mental Health", 
-                   "Immune Function", "Pain Management", "Metabolic Health", "Longevity")
-      
-      # Create synthetic evidence scores
-      set.seed(42)
-      data <- expand.grid(
-        Intervention = interventions,
-        Outcome = outcomes,
-        stringsAsFactors = FALSE
-      ) %>%
-        mutate(
-          Evidence_Strength = round(runif(n(), 0, 10), 1),
-          Study_Count = round(runif(n(), 1, 50)),
-          Quality_Score = round(runif(n(), 0, 5), 1)
-        )
-      
-      # Add some realistic patterns
-      data$Evidence_Strength[data$Intervention == "Curcumin" & data$Outcome == "Cancer Prevention"] <- 8.5
-      data$Evidence_Strength[data$Intervention == "Berberine" & data$Outcome == "Diabetes Management"] <- 9.2
-      data$Evidence_Strength[data$Intervention == "HBOT" & data$Outcome == "Wound Healing"] <- 8.8
-      
-      data
+      read.csv("data/seeds/evidence-matrix.csv", stringsAsFactors = FALSE)
     } else if (input$dataset == "custom" && !is.null(input$file)) {
       read.csv(input$file$datapath, stringsAsFactors = FALSE)
     } else {
