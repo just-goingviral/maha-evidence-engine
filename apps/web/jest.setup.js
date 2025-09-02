@@ -16,13 +16,11 @@ jest.mock('next/image', () => ({
 jest.mock('next/link', () => ({
   __esModule: true,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  default: ({ children, href, ...props, ...rest }) => {
-    return (
-      <a href={href} {...rest} {...props}>
-        {children}
-      </a>
-    )
-  },
+  default: ({ children, href, ...rest }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  ),
 }))
 
 // Set up global test environment
