@@ -119,7 +119,7 @@ The web app includes a `copyToClipboard` utility that uses the modern Clipboard 
 1. Replace files in the `/branding` directory:
    - `maha-logo.svg` - Your logo file
    - `favicon.ico` - Your favicon
-   - `colors.json` - Tailwind color palette
+   - `colors.json` - Tailwind color palette. Editing this file automatically updates the Tailwind palette.
    - `site.json` - Site name and tagline
 
 2. Rebuild the application:
