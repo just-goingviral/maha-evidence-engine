@@ -4,6 +4,7 @@ import "./globals.css";
 import siteConfig from "@/../branding/site.json";
 import Header from "@/components/Header";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,11 +25,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteConfig.siteName,
     description: siteConfig.tagline,
-    url: "https://maha-evidence-engine.vercel.app", // Replace with actual production URL
+    url: siteUrl,
     siteName: siteConfig.siteName,
     images: [
       {
-        url: "https://maha-evidence-engine.vercel.app/og-image.png", // Replace with actual image URL
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
       },
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.siteName,
     description: siteConfig.tagline,
-    images: ["https://maha-evidence-engine.vercel.app/og-image.png"], // Replace with actual image URL
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,

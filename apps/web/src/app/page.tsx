@@ -1,15 +1,17 @@
 // Import site configuration from monorepo root branding folder
 import siteConfig from "../../../../branding/site.json";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost";
+
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.siteName,
-    url: "https://maha-evidence-engine.vercel.app", // Replace with actual production URL
+    url: siteUrl,
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://maha-evidence-engine.vercel.app/maps?query={search_term_string}", // Replace with actual production URL
+      target: `${siteUrl}/maps?query={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };
