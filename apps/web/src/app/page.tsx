@@ -1,7 +1,10 @@
 // Import site configuration from monorepo root branding folder
 import siteConfig from "../../../../branding/site.json";
+import { headers } from "next/headers";
 
 export default function Home() {
+  const cspNonce = headers().get("x-nonce") || undefined;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -17,6 +20,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50">
       <script
+        nonce={cspNonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
