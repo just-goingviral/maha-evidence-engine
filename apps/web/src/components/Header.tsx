@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import siteConfig from '@/../branding/site.json';
+import siteConfig from '../../../../branding/site.json';
 
 const Header: React.FC = () => {
   return (

@@ -33,5 +33,11 @@
     "jest-environment-jsdom": "^30.0.5",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "test-exclude": "^7.0.1"
   }
 }
