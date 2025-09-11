@@ -19,7 +19,7 @@ WORKDIR /srv/shiny-server/eviatlas
 # Copy app files
 COPY app.R .
 COPY ../../branding /srv/shiny-server/branding
-COPY ../../data/seeds /srv/shiny-server/data
+COPY ../../data/seeds data/seeds
 
 # Create custom shiny-server configuration
 RUN echo "run_as shiny; \
