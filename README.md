@@ -236,6 +236,7 @@ Key environment variables (see `.env.example` for full list):
 
 - `NODE_ENV` - Environment (development/production)
 - `NEXT_PUBLIC_API_URL` - Public API URL
+- `NEXT_PUBLIC_SITE_URL` - Public site URL
 - `HEADSTART_API_URL` - Headstart service URL
 - `SESSION_SECRET` - Session encryption key
 - `CORS_ORIGIN` - Allowed CORS origins
