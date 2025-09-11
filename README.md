@@ -52,6 +52,7 @@ Access the application at:
 - Main site: http://localhost
 - Knowledge Maps: http://localhost/maps
 - Evidence Atlas: http://localhost/atlas
+- Disclaimer: http://localhost/disclaimer
 
 ## 📋 Prerequisites
 
