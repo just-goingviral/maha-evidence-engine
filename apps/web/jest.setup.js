@@ -21,6 +21,13 @@ jest.mock('next/link', () => ({
       {children}
     </a>
   ),
+  default: ({ children, href, ...props }) => {
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    )
+  },
 }))
 
 // Set up global test environment

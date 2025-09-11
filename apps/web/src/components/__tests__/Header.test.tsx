@@ -1,12 +1,38 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Header from '../Header';
+import { usePathname } from 'next/navigation';
+
+jest.mock('next/navigation', () => ({
+  usePathname: jest.fn(),
+}));
+
+const mockUsePathname = usePathname as jest.Mock;
+
+beforeEach(() => {
+  mockUsePathname.mockReturnValue('/');
+});
 
 describe('Header Component', () => {
   it('renders MAHA Evidence Engine title', () => {
     render(<Header />);
     const title = screen.getByText('MAHA Evidence Engine');
     expect(title).toBeInTheDocument();
+  });
+
+  it('uses h1 on home page and span on other pages', () => {
+    // Home page
+    mockUsePathname.mockReturnValue('/');
+    const { rerender } = render(<Header />);
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'MAHA Evidence Engine' })
+    ).toBeInTheDocument();
+
+    // Non-home page
+    mockUsePathname.mockReturnValue('/maps');
+    rerender(<Header />);
+    const title = screen.getByText('MAHA Evidence Engine');
+    expect(title.tagName).toBe('SPAN');
   });
 
   it('renders logo with correct alt text', () => {
