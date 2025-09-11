@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import colors from '../../branding/colors.json' assert { type: 'json' }
 
 const config: Config = {
   content: [
@@ -8,11 +9,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: '#007bff',
-        secondary: '#6c757d',
-        accent: '#28a745',
-      },
+      colors,
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
