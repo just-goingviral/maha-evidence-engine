@@ -100,3 +100,7 @@ server/storage/*.png
 server/storage/*.pdf
 server/preprocessing/output/*
 !server/preprocessing/output/.gitkeep
+
+# Ingested datasets
+data/pubmed.json
+data/evidence_maps.json
