@@ -1,16 +1,22 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Header from '../Header';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
+  useSearchParams: jest.fn(),
+  useRouter: jest.fn(),
 }));
 
 const mockUsePathname = usePathname as jest.Mock;
+const mockUseSearchParams = useSearchParams as jest.Mock;
+const mockUseRouter = useRouter as jest.Mock;
 
 beforeEach(() => {
   mockUsePathname.mockReturnValue('/');
+  mockUseSearchParams.mockReturnValue(new URLSearchParams());
+  mockUseRouter.mockReturnValue({ push: jest.fn() });
 });
 
 describe('Header Component', () => {
@@ -62,6 +68,12 @@ describe('Header Component', () => {
     render(<Header />);
     const button = screen.getByRole('button', { name: /copy url/i });
     expect(button).toBeInTheDocument();
+  });
+
+  it('renders evidence scope toggle', () => {
+    render(<Header />);
+    const select = screen.getByRole('combobox', { name: /evidence scope/i });
+    expect(select).toBeInTheDocument();
   });
 
   it('applies correct CSS classes for branding', () => {
