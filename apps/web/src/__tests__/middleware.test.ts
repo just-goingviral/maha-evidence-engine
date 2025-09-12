@@ -4,14 +4,17 @@ jest.mock('next/server', () => ({
   },
 }));
 
-import { middleware } from '../middleware';
+import type { NextRequest } from 'next/server'
+import { middleware } from '../middleware'
 
 type MockRequest = { nextUrl: { pathname: string }; headers: Headers };
+
+// Cast our simple object to NextRequest in tests to satisfy middleware signature without using `any`.
 
 describe('middleware', () => {
   it('sets security headers on every response', () => {
     const request: MockRequest = { nextUrl: { pathname: '/' }, headers: new Headers() };
-    const response = middleware(request as any);
+    const response = middleware(request as unknown as NextRequest)
     expect(response.headers.get('X-Content-Type-Options')).toBe('nosniff');
     expect(response.headers.get('X-Frame-Options')).toBe('DENY');
     expect(response.headers.get('X-XSS-Protection')).toBe('1; mode=block');
@@ -26,7 +29,7 @@ describe('middleware', () => {
       nextUrl: { pathname: '/api/data' },
       headers: new Headers({ origin: 'http://allowed.com' }),
     };
-    const response = middleware(request as any);
+    const response = middleware(request as unknown as NextRequest)
     expect(response.headers.get('Access-Control-Allow-Origin')).toBe('http://allowed.com');
     expect(response.headers.get('Access-Control-Allow-Methods')).toBe('GET, POST, PUT, DELETE, OPTIONS');
     expect(response.headers.get('Access-Control-Allow-Headers')).toBe('Content-Type, Authorization');
@@ -40,7 +43,7 @@ describe('middleware', () => {
       nextUrl: { pathname: '/api/data' },
       headers: new Headers({ origin: 'http://notallowed.com' }),
     };
-    const response = middleware(request as any);
+    const response = middleware(request as unknown as NextRequest)
     expect(response.headers.get('Access-Control-Allow-Origin')).toBeNull();
     delete process.env.CORS_ORIGIN;
   });
