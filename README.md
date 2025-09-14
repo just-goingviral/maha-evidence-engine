@@ -204,12 +204,26 @@ The project maintains a minimum test coverage of 80% for:
 
 ### Security Features
 
-- Content Security Policy (CSP) headers
+- Strict Content Security Policy (CSP) with per-request nonces
 - CORS configuration
 - Rate limiting (10 requests/second)
 - Security headers (X-Frame-Options, X-XSS-Protection, etc.)
 - Regular dependency updates via Dependabot
 - Vulnerability scanning with Trivy
+
+### Content Security Policy
+
+The application sets a restrictive CSP that removes `'unsafe-inline'` and `'unsafe-eval'` from `script-src` and disallows inline styles unless a nonce is present. A unique nonce is generated for every request in [`apps/web/src/middleware.ts`](apps/web/src/middleware.ts) and exposed via the `x-nonce` header. Inline `<script>` or `<style>` tags must include this nonce:
+
+```tsx
+import { headers } from "next/headers";
+
+const nonce = headers().get("x-nonce") || undefined;
+
+<script nonce={nonce} />
+```
+
+Next.js automatically applies the nonce to its internal inline styles and scripts during both development and production builds.
 
 ### Security Audits
 
