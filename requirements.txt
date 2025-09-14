@@ -1,1 +1,2 @@
 # Python dependencies lockfile
+requests>=2.32.3

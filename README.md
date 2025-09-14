@@ -319,6 +319,15 @@ The project uses GitHub Actions for continuous integration:
 - **Building**: Docker image builds
 - **Integration**: Full stack testing
 
+## 🔁 Data Ingestion
+
+Two automated pipelines pull fresh evidence from external sources:
+
+- **Semantic Scholar reviews** – proxy evidence map ingesting systematic review metadata.
+- **PubMed** – retrieves summary details for matching publications.
+
+The workflow `.github/workflows/sync.yml` runs daily and weekly to keep datasets under `data/` current.
+
 ## 📚 Additional Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
