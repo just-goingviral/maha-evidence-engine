@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 # Multi-stage build for optimization
-FROM node:20.19.4-alpine AS base
+FROM node:24.7.0-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
