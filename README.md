@@ -10,6 +10,7 @@ The MAHA Evidence Engine is a cutting-edge platform designed to democratize acce
 - **Combat Misinformation**: Counter skeptics with peer-reviewed studies presented in an accessible format
 - **Identify Research Gaps**: Discover where more studies are needed to support natural healing approaches
 - **Share Knowledge**: Export evidence summaries and visualizations to educate communities and policymakers
+- **Contribute Back**: Send identified evidence gaps to external Evidence Maps services
 
 ### Why This Matters for MAHA
 
