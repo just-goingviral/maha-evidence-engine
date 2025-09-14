@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import siteConfig from '../../../../branding/site.json';
 import CopyButton from './CopyButton';
+import ScopeToggle from './ScopeToggle';
 
 const Header: React.FC = () => {
   const pathname = usePathname();
@@ -30,6 +31,7 @@ const Header: React.FC = () => {
           <li><Link href="/" className="hover:text-accent">Home</Link></li>
           <li><Link href="/maps" className="hover:text-accent">Maps</Link></li>
           <li><Link href="/atlas" className="hover:text-accent">Atlas</Link></li>
+          <li><ScopeToggle /></li>
           <li><CopyButton /></li>
         </ul>
       </nav>
