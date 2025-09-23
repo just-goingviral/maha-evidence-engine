@@ -53,19 +53,19 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Featured Research Topics</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-3 text-primary">Curcumin & Cancer</h3>
-            <p className="text-gray-600 mb-4">
-              Explore evidence on curcumin&apos;s potential anti-cancer properties and mechanisms.
-            </p>
+              <h3 className="text-xl font-semibold mb-3 text-primary">Curcumin & Cancer</h3>
+              <p className="text-gray-600 mb-4">
+                Explore evidence on curcumin&#39;s potential anti-cancer properties and mechanisms.
+              </p>
             <a href="/maps?query=curcumin+cancer" className="text-accent hover:underline">
               View Research →
             </a>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-3 text-primary">Berberine & Diabetes</h3>
-            <p className="text-gray-600 mb-4">
-              Discover studies on berberine&apos;s effects on blood sugar and metabolic health.
-            </p>
+              <h3 className="text-xl font-semibold mb-3 text-primary">Berberine & Diabetes</h3>
+              <p className="text-gray-600 mb-4">
+                Discover studies on berberine&#39;s effects on blood sugar and metabolic health.
+              </p>
             <a href="/maps?query=berberine+diabetes" className="text-accent hover:underline">
               View Research →
             </a>
