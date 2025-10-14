@@ -25,7 +25,7 @@ Perfect for:
 
 ---
 
-A scientific evidence mapping platform that integrates Open Knowledge Maps with a custom Next.js 14 shell, featuring full MAHA branding and EviAtlas integration.
+A scientific evidence mapping platform that integrates Open Knowledge Maps with a custom Next.js 15 shell, featuring full MAHA branding and EviAtlas integration.
 
 If you're new to the project, check out [docs/overview.md](docs/overview.md) for a guided tour of the repository.
 
@@ -39,7 +39,7 @@ If you're new to the project, check out [docs/overview.md](docs/overview.md) for
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/maha-evidence-engine.git
+git clone https://github.com/just-goingviral/maha-evidence-engine.git
 cd maha-evidence-engine
 
 # Copy environment variables
@@ -89,11 +89,9 @@ Use `npm ci`, `pip install -r requirements.txt`, and Cargo commands (when applic
 ```
 maha-evidence-engine/
 ├── apps/
-│   ├── web/              # Next.js 14 main application
+│   ├── web/              # Next.js 15 main application
 │   ├── headstart/        # Open Knowledge Maps integration
 │   └── eviatlas/         # EviAtlas R/Shiny heatmap visualization
-├── packages/
-│   └── ui/               # Shared UI components
 ├── ops/
 │   └── docker/           # Docker configurations
 ├── data/
@@ -173,6 +171,7 @@ npm run lint         # Run ESLint
 npm run test         # Run Jest tests
 npm run test:watch   # Run tests in watch mode
 npm run test:coverage # Generate coverage report
+npm run test:ci      # Run tests in CI mode
 ```
 
 ## 🧪 Testing
