@@ -183,12 +183,11 @@ npm run test:ci      # Run tests in CI mode
 cd apps/web
 npm run test
 
-# Integration tests with Docker
-docker compose up -d
-docker compose exec web npm run test:integration
+# Run tests with coverage
+npm run test:coverage
 
-# End-to-end tests
-npm run test:e2e
+# Run tests in watch mode
+npm run test:watch
 ```
 
 ### Test Coverage
