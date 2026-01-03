@@ -2,6 +2,19 @@
 """
 Generate a master snapshot markdown file containing all repository files.
 This script creates a single markdown document with the contents of all text-based files.
+
+Usage:
+    python3 generate_snapshot.py
+
+The script will create/update REPO_SNAPSHOT.md in the repository root with the complete
+contents of all text-based files, organized with a table of contents and syntax highlighting.
+
+Excluded from snapshot:
+- Binary files (images, fonts, PDFs, etc.)
+- Build artifacts (node_modules, dist, build, .next, etc.)
+- Lock files (package-lock.json, Cargo.lock, etc.)
+- Hidden directories (except specific config files)
+- The generator script itself
 """
 
 import os

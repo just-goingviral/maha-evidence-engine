@@ -4,6 +4,28 @@
 
 This document contains the complete contents of all text-based files in the repository.
 
+## About This Snapshot
+
+This is a comprehensive snapshot of the entire MAHA Evidence Engine repository, containing all source code, configuration files, documentation, and other text-based files in a single markdown document. Binary files (images, fonts, etc.) and build artifacts are excluded.
+
+**Total files included:** 72 files  
+**Document size:** ~109 KB
+
+### How to Regenerate
+
+To regenerate this snapshot with the latest repository contents, run:
+
+```bash
+python3 generate_snapshot.py
+```
+
+The script automatically excludes:
+- Hidden files (except configuration files like `.env.example`, `.gitignore`, etc.)
+- Binary files (images, fonts, etc.)
+- Build artifacts and dependencies (`node_modules`, `dist`, `build`, etc.)
+- Lock files (`package-lock.json`, `Cargo.lock`, etc.)
+- The generator script itself
+
 ---
 
 ## Table of Contents
